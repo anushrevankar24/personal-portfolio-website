@@ -23,7 +23,17 @@ import { BiData } from "react-icons/bi";
 import { FaJava } from "react-icons/fa";
 import { VscCode } from "react-icons/vsc";
 
-const skillCategories = [
+type Skill = {
+  name: string;
+  icon?: React.ReactElement;
+};
+
+type SkillCategory = {
+  title: string;
+  skills: Skill[];
+};
+
+const skillCategories: SkillCategory[] = [
   {
     title: "Languages",
     skills: [
@@ -55,15 +65,6 @@ const skillCategories = [
       { name: "VS Code", icon: <VscCode className="text-4xl text-[#007ACC]" /> },
       { name: "Docker", icon: <SiDocker className="text-4xl text-[#2496ED]" /> },
       { name: "AWS", icon: <SiAmazonwebservices className="text-4xl text-[#FF9900]" /> },
-    ],
-  },
-  {
-    title: "Core Knowledge",
-    skills: [
-      { name: "Data Structures & Algorithms" },
-      { name: "Operating Systems" },
-      { name: "DBMS" },
-      { name: "OOP" },
     ],
   },
 ];
