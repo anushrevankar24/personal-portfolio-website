@@ -4,10 +4,12 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { HiOfficeBuilding, HiCalendar, HiCheckCircle } from "react-icons/hi";
+import Image from "next/image";
 
 const experiences = [
   {
     company: "Visionify.ai",
+    logo: "/visionify_inc_logo.jpeg",
     role: "AI Intern",
     period: "May 2025 – July 2025",
     technologies: ["GenAI", "LangGraph", "FastAPI", "Docker", "AWS"],
@@ -21,6 +23,7 @@ const experiences = [
   },
   {
     company: "IRIS, NITK",
+    logo: "/irisnitk_logo.jpeg",
     totalPeriod: "Jan 2024 – Present",
     roles: [
       {
@@ -84,10 +87,20 @@ export default function Experience() {
 
               <div className="glass-effect rounded-lg p-6 md:p-8 hover:border-purple-400 transition-all group">
                 <div className="flex flex-col md:flex-row md:items-start gap-4">
-                  {/* Icon */}
+                  {/* Company Logo */}
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 flex items-center justify-center glow-purple">
-                      <HiOfficeBuilding className="text-2xl" />
+                    <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center overflow-hidden border-2 border-purple-500/30 glow-purple">
+                      {exp.logo ? (
+                        <Image
+                          src={exp.logo}
+                          alt={exp.company}
+                          width={64}
+                          height={64}
+                          className="object-cover"
+                        />
+                      ) : (
+                        <HiOfficeBuilding className="text-2xl text-purple-600" />
+                      )}
                     </div>
                   </div>
 
@@ -106,22 +119,31 @@ export default function Experience() {
                           </div>
                         </div>
 
-                        {/* Multiple Roles */}
-                        {exp.roles.map((roleData, roleIndex) => (
-                          <div
-                            key={roleIndex}
-                            className={`${
-                              roleIndex > 0 ? "mt-8 pt-6 border-t border-purple-500/30" : ""
-                            }`}
-                          >
-                            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                              <h3 className="text-xl font-bold text-purple-400">
-                                {roleData.role}
-                              </h3>
-                              <span className="text-sm text-gray-400 mt-1 md:mt-0">
-                                {roleData.period}
-                              </span>
-                            </div>
+                        {/* Multiple Roles with connecting line */}
+                        <div className="relative">
+                          {/* Vertical connecting line between roles */}
+                          {exp.roles.length > 1 && (
+                            <div className="hidden md:block absolute left-[-28px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-purple-400 via-purple-500 to-purple-600" />
+                          )}
+                          
+                          {exp.roles.map((roleData, roleIndex) => (
+                            <div
+                              key={roleIndex}
+                              className={`relative ${
+                                roleIndex > 0 ? "mt-8 pt-6" : ""
+                              }`}
+                            >
+                              {/* Role dot indicator */}
+                              <div className="hidden md:block absolute left-[-34px] top-6 w-3 h-3 rounded-full bg-purple-500 border-2 border-purple-300 shadow-lg shadow-purple-500/50" />
+                              
+                              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <h3 className="text-xl font-bold text-purple-400">
+                                  {roleData.role}
+                                </h3>
+                                <span className="text-sm text-gray-400 mt-1 md:mt-0">
+                                  {roleData.period}
+                                </span>
+                              </div>
 
                             {/* Technologies */}
                             <div className="flex flex-wrap gap-2 mb-4">
@@ -135,17 +157,18 @@ export default function Experience() {
                               ))}
                             </div>
 
-                            {/* Achievements */}
-                            <ul className="space-y-3">
-                              {roleData.achievements.map((achievement, i) => (
-                                <li key={i} className="flex items-start text-gray-300">
-                                  <HiCheckCircle className="text-purple-400 mt-1 mr-3 flex-shrink-0" />
-                                  <span>{achievement}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
+                              {/* Achievements */}
+                              <ul className="space-y-3">
+                                {roleData.achievements.map((achievement, i) => (
+                                  <li key={i} className="flex items-start text-gray-300">
+                                    <HiCheckCircle className="text-purple-400 mt-1 mr-3 flex-shrink-0" />
+                                    <span>{achievement}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
                       </>
                     ) : (
                       // Single role

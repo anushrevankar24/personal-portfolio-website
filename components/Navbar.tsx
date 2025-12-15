@@ -56,7 +56,7 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link href="#home" className="text-xl font-bold text-gradient">
+        <Link href="#home" className="text-xl font-bold text-white">
           Anush Revankar
         </Link>
 

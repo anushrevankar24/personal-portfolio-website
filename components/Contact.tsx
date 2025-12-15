@@ -7,6 +7,7 @@ import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { siteConfig } from "@/lib/config";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const ref = useRef(null);
@@ -38,29 +39,26 @@ export default function Contact() {
     setStatus({ type: null, message: "" });
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      // Send email using EmailJS directly from client
+      await emailjs.send(
+        siteConfig.emailjs.serviceId,
+        siteConfig.emailjs.templateId,
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
         },
-        body: JSON.stringify(formData),
+        siteConfig.emailjs.publicKey
+      );
+
+      setStatus({
+        type: "success",
+        message: "Message sent successfully! I'll get back to you soon.",
       });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setStatus({
-          type: "success",
-          message: "Message sent successfully! I'll get back to you soon.",
-        });
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      } else {
-        setStatus({
-          type: "error",
-          message: data.error || "Something went wrong. Please try again.",
-        });
-      }
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
+      console.error("EmailJS error:", error);
       setStatus({
         type: "error",
         message: "Failed to send message. Please try again later.",

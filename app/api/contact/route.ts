@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { siteConfig } from "@/lib/config";
+import emailjs from "@emailjs/browser";
 
 export async function POST(request: NextRequest) {
   try {
@@ -23,37 +24,48 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Here you would integrate with EmailJS or another email service
-    // For now, we'll just log the message and return success
-    console.log("Contact form submission:", {
-      name,
-      email,
-      subject,
-      message,
-      timestamp: new Date().toISOString(),
-    });
+    // Check if EmailJS is configured
+    if (!siteConfig.emailjs.serviceId || !siteConfig.emailjs.templateId || !siteConfig.emailjs.publicKey) {
+      console.error("EmailJS not configured properly");
+      return NextResponse.json(
+        { error: "Email service not configured" },
+        { status: 500 }
+      );
+    }
 
-    // If using EmailJS, uncomment and configure:
-    /*
-    const emailjs = require('emailjs-com');
-    await emailjs.send(
-      siteConfig.emailjs.serviceId,
-      siteConfig.emailjs.templateId,
-      {
-        from_name: name,
-        from_email: email,
-        subject: subject,
-        message: message,
-        to_email: siteConfig.email,
-      },
-      siteConfig.emailjs.publicKey
-    );
-    */
+    // Send email using EmailJS
+    try {
+      await emailjs.send(
+        siteConfig.emailjs.serviceId,
+        siteConfig.emailjs.templateId,
+        {
+          from_name: name,
+          from_email: email,
+          subject: subject,
+          message: message,
+          to_email: siteConfig.email,
+        },
+        siteConfig.emailjs.publicKey
+      );
 
-    return NextResponse.json(
-      { message: "Message sent successfully" },
-      { status: 200 }
-    );
+      console.log("Email sent successfully:", {
+        name,
+        email,
+        subject,
+        timestamp: new Date().toISOString(),
+      });
+
+      return NextResponse.json(
+        { message: "Message sent successfully" },
+        { status: 200 }
+      );
+    } catch (emailError) {
+      console.error("EmailJS error:", emailError);
+      return NextResponse.json(
+        { error: "Failed to send email. Please try again later." },
+        { status: 500 }
+      );
+    }
   } catch (error) {
     console.error("Contact form error:", error);
     return NextResponse.json(

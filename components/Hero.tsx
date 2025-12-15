@@ -29,7 +29,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-purple-400 text-2xl md:text-3xl lg:text-4xl font-bold"
+              className="text-white text-2xl md:text-3xl lg:text-4xl font-bold"
             >
               {siteConfig.title}
             </motion.p>
@@ -132,8 +132,8 @@ export default function Hero() {
             className="flex justify-center items-center"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-purple-600 rounded-full blur-3xl opacity-20 animate-pulse" />
-              <div className="relative w-[450px] h-[450px] md:w-[550px] md:h-[550px] lg:w-[650px] lg:h-[650px] xl:w-[700px] xl:h-[700px] rounded-full overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-500/20">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-700/50 via-purple-950/60 to-black rounded-full blur-2xl opacity-70" />
+              <div className="relative w-[450px] h-[450px] md:w-[550px] md:h-[550px] lg:w-[650px] lg:h-[650px] xl:w-[700px] xl:h-[700px] rounded-full overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-800/40">
                 <Image
                   src="/profile.png"
                   alt={siteConfig.name}
