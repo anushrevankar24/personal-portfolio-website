@@ -44,7 +44,7 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-16 relative overflow-hidden">
+    <section id="projects" className="py-12 md:py-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black" />
       
       <div className="container mx-auto px-6 relative z-10" ref={ref}>

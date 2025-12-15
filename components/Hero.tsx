@@ -11,25 +11,25 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 md:pt-0"
     >
       {/* Clean Background */}
       <div className="absolute inset-0 bg-black" />
 
-      <div className="container mx-auto px-6 py-16 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 md:px-6 py-6 md:py-16 relative z-10">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="space-y-3 md:space-y-6"
           >
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-white text-xl md:text-2xl lg:text-3xl font-bold"
+              className="text-white text-base md:text-2xl lg:text-3xl font-bold"
             >
               {siteConfig.title}
             </motion.p>
@@ -38,7 +38,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight"
+              className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight"
             >
               Hi, I&apos;m <span className="text-gradient whitespace-nowrap">{siteConfig.name}</span>
             </motion.h1>
@@ -47,7 +47,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-lg text-gray-400"
+              className="text-sm md:text-lg text-gray-400"
             >
               {siteConfig.tagline}
             </motion.p>
@@ -56,7 +56,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="text-base text-gray-300 max-w-lg"
+              className="text-sm md:text-base text-gray-300 max-w-lg"
             >
               Building AI-powered solutions and scalable web applications.
               Specializing in GenAI, Machine Learning, and Full-stack Development.
@@ -66,7 +66,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-3 md:gap-4"
             >
               <button
                 onClick={() =>
@@ -74,7 +74,7 @@ export default function Hero() {
                     .getElementById("projects")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="px-6 py-2.5 bg-gradient-to-r from-violet-600 to-purple-600 rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all font-medium text-sm"
+                className="px-5 py-2 md:px-6 md:py-2.5 bg-gradient-to-r from-violet-600 to-purple-600 rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all font-medium text-xs md:text-sm"
               >
                 View Work
               </button>
@@ -82,7 +82,7 @@ export default function Hero() {
                 href={siteConfig.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2.5 border border-purple-400 rounded-lg hover:bg-purple-400/10 transition-all font-medium text-sm"
+                className="px-5 py-2 md:px-6 md:py-2.5 border border-purple-400 rounded-lg hover:bg-purple-400/10 transition-all font-medium text-xs md:text-sm"
               >
                 View Resume
               </a>
@@ -92,13 +92,13 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="flex gap-6 pt-4"
+              className="flex gap-4 md:gap-6 pt-2 md:pt-4"
             >
               <a
                 href={siteConfig.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-2xl text-gray-400 hover:text-purple-400 transition-colors"
+                className="text-xl md:text-2xl text-gray-400 hover:text-purple-400 transition-colors"
                 aria-label="GitHub"
               >
                 <FaGithub />
@@ -107,7 +107,7 @@ export default function Hero() {
                 href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-2xl text-gray-400 hover:text-purple-400 transition-colors"
+                className="text-xl md:text-2xl text-gray-400 hover:text-purple-400 transition-colors"
                 aria-label="LinkedIn"
               >
                 <FaLinkedin />
@@ -116,7 +116,7 @@ export default function Hero() {
                 href={siteConfig.social.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-2xl text-gray-400 hover:text-purple-400 transition-colors"
+                className="text-xl md:text-2xl text-gray-400 hover:text-purple-400 transition-colors"
                 aria-label="X (Twitter)"
               >
                 <RiTwitterXFill />
@@ -129,11 +129,11 @@ export default function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex justify-center items-center"
+            className="flex justify-center items-center mt-8 md:mt-0"
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-700/50 via-purple-950/60 to-black rounded-full blur-2xl opacity-70" />
-              <div className="relative w-[320px] h-[320px] md:w-[400px] md:h-[400px] lg:w-[480px] lg:h-[480px] xl:w-[520px] xl:h-[520px] rounded-full overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-800/40">
+              <div className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] lg:w-[480px] lg:h-[480px] xl:w-[520px] xl:h-[520px] rounded-full overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-800/40">
                 <Image
                   src="/profile.png"
                   alt={siteConfig.name}

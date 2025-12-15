@@ -52,11 +52,11 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "glass-effect py-4 shadow-lg" : "bg-transparent py-6"
+        scrolled ? "glass-effect py-2 md:py-4 shadow-lg" : "bg-transparent py-3 md:py-6"
       }`}
     >
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link href="#home" className="text-xl font-bold text-white">
+      <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
+        <Link href="#home" className="text-base md:text-xl font-bold text-white">
           Anush Revankar
         </Link>
 
@@ -87,7 +87,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-3xl text-purple-400"
+          className="md:hidden text-2xl text-purple-400"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
