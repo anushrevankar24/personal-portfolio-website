@@ -18,6 +18,19 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 15px; /* Reduced from default 16px for better scaling at 100% zoom */
+  }
+  
+  @media (min-width: 768px) {
+    html {
+      font-size: 15px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    html {
+      font-size: 16px;
+    }
   }
 }
 

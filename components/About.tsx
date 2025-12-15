@@ -43,7 +43,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
+    <section id="about" className="py-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black" />
       
       <div className="container mx-auto px-6 relative z-10" ref={ref}>
@@ -51,12 +51,12 @@ export default function About() {
           initial={{ opacity: 0, y: -20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
             About <span className="text-gradient">Me</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto" />
+          <div className="w-16 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto" />
         </motion.div>
 
         <motion.div
@@ -65,20 +65,20 @@ export default function About() {
           animate={isInView ? "visible" : "hidden"}
           className="max-w-4xl mx-auto"
         >
-          <motion.div variants={itemVariants} className="mb-12">
-            <p className="text-lg text-gray-300 leading-relaxed mb-6">
+          <motion.div variants={itemVariants} className="mb-8">
+            <p className="text-base text-gray-300 leading-relaxed mb-4">
               I&apos;m a B.Tech student in Artificial Intelligence at{" "}
               <span className="text-purple-400 font-semibold">NIT Surathkal</span>, 
               passionate about building AI-powered solutions that solve real-world problems. 
               My journey in tech has been driven by curiosity and a desire to create impactful applications.
             </p>
-            <p className="text-lg text-gray-300 leading-relaxed mb-6">
+            <p className="text-base text-gray-300 leading-relaxed mb-4">
               As the <span className="text-purple-400 font-semibold">Labs Lead at IRIS</span>, 
               I lead a team of 8 developers building scalable AI utilities for our student-led ERP 
               platform serving 8,000+ active users. My work focuses on creating microservices that 
               enhance platform reliability and user experience.
             </p>
-            <p className="text-lg text-gray-300 leading-relaxed">
+            <p className="text-base text-gray-300 leading-relaxed">
               I specialize in <span className="text-purple-400 font-semibold">GenAI, LangGraph, FastAPI, and Django</span>, 
               with hands-on experience in building intelligent systems, REST APIs, and containerized applications. 
               I&apos;m always excited to explore new technologies and collaborate on innovative projects.

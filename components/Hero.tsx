@@ -16,7 +16,7 @@ export default function Hero() {
       {/* Clean Background */}
       <div className="absolute inset-0 bg-black" />
 
-      <div className="container mx-auto px-6 py-20 relative z-10">
+      <div className="container mx-auto px-6 py-16 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
@@ -29,7 +29,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-white text-2xl md:text-3xl lg:text-4xl font-bold"
+              className="text-white text-xl md:text-2xl lg:text-3xl font-bold"
             >
               {siteConfig.title}
             </motion.p>
@@ -38,7 +38,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight"
             >
               Hi, I&apos;m <span className="text-gradient whitespace-nowrap">{siteConfig.name}</span>
             </motion.h1>
@@ -47,7 +47,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-xl text-gray-400"
+              className="text-lg text-gray-400"
             >
               {siteConfig.tagline}
             </motion.p>
@@ -56,7 +56,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="text-lg text-gray-300 max-w-lg"
+              className="text-base text-gray-300 max-w-lg"
             >
               Building AI-powered solutions and scalable web applications.
               Specializing in GenAI, Machine Learning, and Full-stack Development.
@@ -74,7 +74,7 @@ export default function Hero() {
                     .getElementById("projects")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="px-8 py-3 bg-gradient-to-r from-violet-600 to-purple-600 rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all font-medium"
+                className="px-6 py-2.5 bg-gradient-to-r from-violet-600 to-purple-600 rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all font-medium text-sm"
               >
                 View Work
               </button>
@@ -82,7 +82,7 @@ export default function Hero() {
                 href={siteConfig.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 border border-purple-400 rounded-lg hover:bg-purple-400/10 transition-all font-medium"
+                className="px-6 py-2.5 border border-purple-400 rounded-lg hover:bg-purple-400/10 transition-all font-medium text-sm"
               >
                 View Resume
               </a>
@@ -98,7 +98,7 @@ export default function Hero() {
                 href={siteConfig.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-3xl text-gray-400 hover:text-purple-400 transition-colors"
+                className="text-2xl text-gray-400 hover:text-purple-400 transition-colors"
                 aria-label="GitHub"
               >
                 <FaGithub />
@@ -107,7 +107,7 @@ export default function Hero() {
                 href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-3xl text-gray-400 hover:text-purple-400 transition-colors"
+                className="text-2xl text-gray-400 hover:text-purple-400 transition-colors"
                 aria-label="LinkedIn"
               >
                 <FaLinkedin />
@@ -116,7 +116,7 @@ export default function Hero() {
                 href={siteConfig.social.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-3xl text-gray-400 hover:text-purple-400 transition-colors"
+                className="text-2xl text-gray-400 hover:text-purple-400 transition-colors"
                 aria-label="X (Twitter)"
               >
                 <RiTwitterXFill />
@@ -133,7 +133,7 @@ export default function Hero() {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-700/50 via-purple-950/60 to-black rounded-full blur-2xl opacity-70" />
-              <div className="relative w-[450px] h-[450px] md:w-[550px] md:h-[550px] lg:w-[650px] lg:h-[650px] xl:w-[700px] xl:h-[700px] rounded-full overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-800/40">
+              <div className="relative w-[320px] h-[320px] md:w-[400px] md:h-[400px] lg:w-[480px] lg:h-[480px] xl:w-[520px] xl:h-[520px] rounded-full overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-800/40">
                 <Image
                   src="/profile.png"
                   alt={siteConfig.name}
@@ -154,7 +154,7 @@ export default function Hero() {
         transition={{ delay: 1, repeat: Infinity, duration: 2 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
-        <HiArrowDown className="text-3xl text-purple-400 animate-bounce" />
+        <HiArrowDown className="text-2xl text-purple-400 animate-bounce" />
       </motion.div>
     </section>
   );

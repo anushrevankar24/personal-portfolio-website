@@ -44,7 +44,7 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-20 relative overflow-hidden">
+    <section id="projects" className="py-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black" />
       
       <div className="container mx-auto px-6 relative z-10" ref={ref}>
@@ -52,12 +52,12 @@ export default function Projects() {
           initial={{ opacity: 0, y: -20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
             Featured <span className="text-gradient">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto" />
+          <div className="w-16 h-1 bg-gradient-to-r from-violet-600 to-purple-600 mx-auto" />
         </motion.div>
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
